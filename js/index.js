@@ -1,44 +1,39 @@
-// Objetos
-alumno = {
-    nombre: 'Agustin',
-    apellido: 'Aponte',
-    edad: 20,
-}
-// Array de objetos | Esta es una estructura de datos
-const familia = [
+const cursos = [
     {
-        nombre: 'Agustin',
-        apellido: 'Aponte',
-        edad: 20,
+       nombre: 'Marketing Digital',
+       descripcion: 'Con este curso podrás lograr un nivel avanzado. No se requieren conocimientos previos.',
+       precio: 2300 
     },
     {
-        nombre: 'Manuel',
-        apellido: 'Aponte',
-        edad: 20,
+       nombre: 'Diseño grafico',
+       descripcion: 'Aprende a manejar las mejores herramientas gratuitas para diseño grafico',
+       precio: 3300 
+    },
+    {
+       nombre: 'Arte Digital',
+       descripcion: 'Conoce las mejores tecnicas del arte contemporaneo.',
+       precio: 5000 
     }
 ]
-for (let i = 0; i < familia.length; i++) {
-    document.write(familia[i].nombre);
-}
 
-/* Iterador que recorre un array
+   function filtro() {
+    let busqueda = prompt('¿Qué curso quieres ver?');
+    if (busqueda == "marketing digital") { 
+        alert("Ya puedes ver la información del curso " + busqueda);
+        document.write("Curso: " + cursos[0].nombre + " Descripción: " + cursos[0].descripcion + " Precio: $" + cursos[0].precio);
+    } else if (busqueda == "diseño grafico"){
+        alert("Ya puedes ver la información del curso " + busqueda);
+        document.write("Curso: " + cursos[1].nombre + " Descripción: " + cursos[1].descripcion + " Precio: $" + cursos[1].precio);
+    } 
+    else if (busqueda == "arte digital"){
+        alert("Ya puedes ver la información del curso " + busqueda);
+        document.write("Curso: " + cursos[2].nombre + " Descripción: " + cursos[2].descripcion + " Precio: $" + cursos[2].precio);
+    }
+   }
 
-const alumnos = ["Javier", "John", "Martin"];
+filtro();
 
-for (let i = 0; i < alumnos.length; i++) {
-    document.write(alumnos[i]);
-    
-}*/
 
-// Metodo push para agregar un elemento al array
-alumnos.push("Mariana");
 
-// Metodo si un array incluye a "Sofia"
-alumnos.includes("Mariano") // ==> Esto da false
 
-/* Eliminar el elemento que queremos según el indice y la cantidad 
-de elementos a la derecha que queres borrar*/
-alumnos.splice(0, 1);
-// Otro parametro es borrar segun indice y agregar el nombre "Sofia"
-alumnos.splice(0,1, "Sofia");
 
