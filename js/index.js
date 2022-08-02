@@ -38,7 +38,7 @@ let repetir = confirm("¿Quieres ver algun curso mas?");
 if (repetir) {
     filtro();
 } else {
-    
+    alert("Gracias por utilizar nuestra web");
 }
 
 
