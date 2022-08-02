@@ -33,6 +33,14 @@ const cursos = [
 
 filtro();
 
+let repetir = confirm("¿Quieres ver algun curso mas?");
+
+if (repetir) {
+    filtro();
+} else {
+    
+}
+
 
 
 
