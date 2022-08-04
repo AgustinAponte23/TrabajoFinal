@@ -38,21 +38,6 @@ function filtro() {
 filtro();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Final de programa
 
 let repetir = confirm("¿Quieres ver algun curso mas?");
