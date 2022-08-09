@@ -1,54 +1,59 @@
 const listaCursos = [];
 
-// Curso template y metodos
-class curso {
+// Curso template
+class Curso {
     constructor(nombre, descripcion, precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio; 
     }
-
-    agregarCurso(){
-        listaCursos.push(cursoMD);
-    }
-
-    eliminarCurso(){
-        listaCursos.pop();
-    }
-
-    
 }
+
 // Creación del curso y push al array de ListaCursos
-const cursoMD = new curso('Marketing digital', 'El mejor curso de redes sociales para principiantes', 1500);
-cursoMD.agregarCurso();
+const cursoMd = new Curso('Marketing digital', 'El mejor curso de redes sociales para principiantes', 1500);
+const cursoAd = new Curso('Arte digital', 'Conoce las mejores herramientas para el arte digital' ,3500);
+const cursoDg = new Curso('Diseño grafico', 'Aprende a diseñar las mejores graficas' ,5500);
+// Push
+listaCursos.push(cursoMd);
+listaCursos.push(cursoAd);
+listaCursos.push(cursoDg);
 
 
 // Funciones
-function mostrarCurso() {
-    document.write(listaCursos[0].nombre , listaCursos[0].descripcion , listaCursos[0].precio)
+function mostrar() {
+    document.getElementById('buscador').style.display = 'block';
 }
-
-function filtro() {
-    let busqueda = prompt('¿Qué curso quieres ver? (Número 1 para marketing digital)');
-    if (busqueda == 1) { 
-        mostrarCurso();
+function eliminarCurso() {
+    listaCursos.pop();
+    for (const curso of listaCursos) {
+        console.log('Queda el curso: ' + curso.nombre);
     }
 }
+// Eventos
+const eliminar = document.getElementById('eliminar');
+eliminar.onclick = eliminarCurso;
 
-filtro();
+
+// Control del buscador
+let form = document.getElementById('formulario');
+
+form.addEventListener('submit', function (e){
+    e.preventDefault(); 
+    let datos = new FormData(form);
+    let cursoBuscado = datos.get('nombre');
+
+    // Validación
+    if (cursoBuscado === "marketing digital") {
+        alert('Nombre: ' + listaCursos[0].nombre + ' Descripción:' + listaCursos[0].descripcion + ' Precio de: ' + ' $ ' + listaCursos[0].precio)
+    } else if(cursoBuscado === "arte digital") {
+        alert('Nombre: ' + listaCursos[1].nombre + ' Descripción:' + listaCursos[1].descripcion + ' Precio de: ' + ' $ ' + listaCursos[1].precio)
+    }else if(cursoBuscado === "diseño grafico"){
+        alert('Nombre: ' + listaCursos[2].nombre + ' Descripción:' + listaCursos[2].descripcion + ' Precio de: ' + ' $ ' + listaCursos[2].precio)
+    }
+})
 
 
-// Final de programa
 
-let repetir = confirm("¿Quieres ver algun curso mas?");
-
-if (repetir) {
-    filtro();
-} else {
-    alert("Gracias por utilizar nuestra web");
-}
-// Se elimina el curso 
-cursoMD.eliminarCurso();
 
 
 
