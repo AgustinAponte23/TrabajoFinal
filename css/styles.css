@@ -11,3 +11,11 @@
     width: 100%;
     margin-bottom: 20px;
 }
+
+.btn a{
+    text-decoration: none;
+}
+
+#alerta{
+    display: none;
+}
