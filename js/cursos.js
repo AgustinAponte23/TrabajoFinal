@@ -22,9 +22,26 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
     ];
+    const cursosDefault = [
+        {
+            id: 4,
+            nombre: 'Curso Arte Digital',
+            precio: 4000,
+            imagen: 'artedigital.jpg' 
+        },
+        {
+            id: 5,
+            nombre: 'Curso Arte Digital',
+            precio: 4000,
+            imagen: 'artedigital.jpg'
+        }
+    ]
+
+
 
     //Variables
-    let carrito = [];
+    let carrito = [];  
+    console.log(carrito);
     const divisa = '$';
     const DOMitems = document.querySelector('#items');
     const DOMcarrito = document.querySelector('#carrito');
@@ -87,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Cantidad
             const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-                return itemId === item ? total += 1 : total;
+                return itemId === item ? total += 1 : total; // Operador avanzado ?
             }, 0);
             
             // Item del carrito
