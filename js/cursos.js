@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Array Cursos
@@ -22,22 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
     ];
-    const cursosDefault = [
-        {
-            id: 4,
-            nombre: 'Curso Arte Digital',
-            precio: 4000,
-            imagen: 'artedigital.jpg' 
-        },
-        {
-            id: 5,
-            nombre: 'Curso Arte Digital',
-            precio: 4000,
-            imagen: 'artedigital.jpg'
-        }
-    ]
-
-
 
     //Variables
     let carrito = [];  
@@ -122,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
             miNodo.appendChild(miBoton);
             DOMcarrito.appendChild(miNodo);
         });
-        DOMtotal.textContent = calcularTotal();
     }
 
     // Vaciar
@@ -139,6 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Actualizar
     function vaciarCarrito() {
         carrito = [];
+        Swal.fire(
+            'Vaciaste correctamente!',
+            'Tus pedidos se esfumaron',
+            'success'
+          )
         renderizarCarrito();
         localStorage.clear();
 
@@ -163,4 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarCarritoDeLocalStorage();
     renderizarProductos();
     renderizarCarrito();
+
+
 });
