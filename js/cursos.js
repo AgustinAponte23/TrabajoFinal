@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = JSON.parse(this.response);
             const HtmlResponse = document.querySelector('#columna');
 
-            const template = data.map((curso) => `<li>${data.nombre}</li>`)
+            const template = data.map((curso) => `<li>${data[0].nombre}</li> <li>${data[1].nombre}</li> <li>${data[2].nombre}</li>`)
             HtmlResponse.innerHTML = `<ul>${template}</ul>`;
         }
     }
