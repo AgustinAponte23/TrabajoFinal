@@ -8,14 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función API
     function request() {
-        if (this.readState === 4 && this.status === 200) {
+        if (this.readyState === 4 && this.status === 200) {
             const data = JSON.parse(this.response);
             const HtmlResponse = document.querySelector('#columna');
 
-            const template = data.map(curso => `<li>${cursos.nombre}</li>`)
+            const template = data.map((curso) => `<li>${data.nombre}</li>`)
             HtmlResponse.innerHTML = `<ul>${template}</ul>`;
-
-            console.log(data);
         }
     }
 
@@ -30,19 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 1,
             nombre: 'CursoMarketing Digital',
             precio: 2400,
-            imagen: 'marketing.jpg'
         },
         {
             id: 2,
             nombre: 'Curso Diseño grafico',
             precio: 3200,
-            imagen: 'diseñografico.jpg'
         },
         {
             id: 3,
             nombre: 'Curso Arte Digital',
             precio: 4000,
-            imagen: 'artedigital.jpg'
         },
 
     ];
