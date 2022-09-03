@@ -1,8 +1,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Api
+    const API_URL = "https://63136bacb466aa9b03992c51.mockapi.io/"
+    // Conexión con API
+    const xhr = new XMLHttpRequest();   
+
+    // Función API
+    function request() {
+        if (this.readState === 4 && this.status === 200) {
+            const data = JSON.parse(this.response);
+            const HtmlResponse = document.querySelector('#columna');
+
+            const template = data.map(curso => `<li>${cursos.nombre}</li>`)
+            HtmlResponse.innerHTML = `<ul>${template}</ul>`;
+
+            console.log(data);
+        }
+    }
+
+    xhr.addEventListener('load', request);
+    xhr.open('GET', `${API_URL}/cursos`);
+    xhr.send();
+ 
+    
     // Array Cursos
-    const cursos = [
+    const cursosDefault = [
         {
             id: 1,
             nombre: 'CursoMarketing Digital',
@@ -30,13 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const divisa = '$';
     const DOMitems = document.querySelector('#items');
     const DOMcarrito = document.querySelector('#carrito');
-    const DOMtotal = document.querySelector('#total');
     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
     const miLocalStorage = window.localStorage;
 
     // Funciones
     function renderizarProductos() {
-        cursos.forEach((info) => {
+        cursosDefault.forEach((info) => {
             // Estructura
             const miNodo = document.createElement('div');
             miNodo.classList.add('card', 'col-12');
@@ -83,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         DOMcarrito.textContent = '';
         const carritoSinDuplicados = [...new Set(carrito)];
         carritoSinDuplicados.forEach((item) => {
-            const miItem = cursos.filter((itemCursos) => {
+            const miItem = cursosDefault.filter((itemCursos) => {
                 return itemCursos.id === parseInt(item);
             });
 
@@ -143,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             carrito = JSON.parse(miLocalStorage.getItem('carrito'));
         }
     }
+
 
     // Eventos
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
