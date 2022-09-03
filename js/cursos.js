@@ -123,14 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Actualizar
     function vaciarCarrito() {
         carrito = [];
+        renderizarCarrito();
+        localStorage.clear();
         Swal.fire(
             'Vaciaste correctamente!',
             'Tus pedidos se esfumaron',
             'success'
           )
-        renderizarCarrito();
-        localStorage.clear();
-
     }
 
     function guardarCarritoEnLocalStorage () {
